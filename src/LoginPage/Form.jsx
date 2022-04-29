@@ -5,9 +5,19 @@ import { Container } from "react-bootstrap";
 import Logo from "../Assets/logo.png";
 import { height } from "@mui/system";
 import { Link } from "react-router-dom";
-// import ReCAPTCHA from "react-google-recaptcha";
+import ReCAPTCHA from "react-google-recaptcha";
+import { useState } from 'react';
+import { toast } from 'react-toastify';
+
+const [recaptchaToken, setRecaptchaToken] = useState();
+const recaptchaRef = React.useRef();
+
+const verifyCallback = (recaptchaToken) => {
+  setRecaptchaToken(recaptchaToken);
+};
 
 class Form extends Component {
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -61,7 +71,7 @@ class Form extends Component {
       validateForm: this.state.validateEmail && this.state.validatePassword,
     });
   }
-
+  
   render() {
     return (
       <Container>
@@ -128,6 +138,13 @@ class Form extends Component {
                   />
                 </div>
                 <br />
+                <ReCAPTCHA 
+                        ref={recaptchaRef}
+                        size="normal"
+                        theme="dark"
+                        sitekey="6Lem5_cdAAAAAOGTlGUTApVlelyg9wi_XT3H92db"
+                        onChange={verifyCallback}>
+                        </ReCAPTCHA>
 
                 <div className="text-center">
                   <button 
