@@ -5,7 +5,7 @@ export const FormValidation = ({FormValidation}) =>
 {Object.keys(FormValidation).map((fieldName, i) => {
   if(FormValidation[fieldName].length > 0){
     return (
-      <p class="alert alert-danger" key={i}>{fieldName} {FormValidation[fieldName]}</p>
+      <p className="alert alert-danger" key={i}>{fieldName} {FormValidation[fieldName]}</p>
     )        
   } else {
     return '';

@@ -1,21 +1,22 @@
 import './App.css';
-import Header from './Components/Header/Header';
-import Form from './LoginPage/Form';
-import Footer from "./Components/Footer/Footer";
+import Login from './Components/LoginPage/Form';
+import { BrowserRouter as Router, Route,  } from "react-router-dom";
 
+import Layout from "./Layout";
 
 function App() {
+    return (
+        <div className='App'>
+            <Layout>
+                    <Router>
+                        <Route path="/login" component={Login}/>
 
-  return (
-    
-  <div className='App'>
-    <Header />
-    <Form />
-    <Footer />
+                    </Router>
 
-  </div>
-  
-  );
+            </Layout>
+        </div>
+
+    );
 }
 
 export default App;
