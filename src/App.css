@@ -133,7 +133,7 @@
   ins {
     text-decoration:none;
     outline:none;
-    color: inherit;
+    color: var(--color2);
   }
   .form-group {
     margin-bottom: 1rem;
