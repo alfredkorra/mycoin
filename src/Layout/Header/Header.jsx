@@ -1,14 +1,10 @@
-import { Link } from "react-router-dom";
-import "./Header.css";
-
 function Header() {
   return (
     <header className="header-main">
       <div className="container">
         <div className="content-header d-flex align-items-center justify-content-between">
           <div className="btn-back">
-            <Link href={{ pathname: "/" }} className="icon">
-              <a>
+              <a href="/">
                 <svg
                   version="1.1"
                   width="18"
@@ -29,12 +25,10 @@ function Header() {
                   />
                 </svg>
               </a>
-            </Link>
           </div>
           <div className="item-options">
             <div className="item-notification icon-effect">
-              <Link href={{ pathname: "/notifications" }} className="icon">
-                <a>
+                <a href="/notifications">
                   <svg
                     enableBackground="new 0 0 512 512"
                     fill="currentColor"
@@ -49,7 +43,6 @@ function Header() {
                   </svg>
                   <span className="count-notif"></span>
                 </a>
-              </Link>
             </div>
           </div>
         </div>

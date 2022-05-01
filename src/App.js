@@ -1,15 +1,19 @@
-import Login from "./Components/LoginPage/Form";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import  Form  from "./Components/LoginPage/Form";
-import Layout from "./Layout";
-import Footer from "./Layout/Footer/Footer";
-import Loader from "./Components/Loader";
 import './bootstrap.min.css';
 import './animate.min.css';
 import "./App.css";
+import 'react-toastify/dist/ReactToastify.css';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Layout from "./Layout";
+import Loader from "./Components/Loader";
 import jQuery from 'jquery';
 import React, { useEffect } from 'react';
+import Login from "./Components/LoginPage/Login";
+import Register from "./Components/RegisterPage/Register";
+import ForgotPassword from "./Components/ResetPage/ForgotPassword";
+import Contact from "./Components/ContactPage/Contact";
+import { toast } from 'react-toastify';
 
+toast.configure();
 
 function App() {
   useEffect(()=>{
@@ -19,15 +23,19 @@ function App() {
 
   return (
     <div className="app">
-{ <Layout>
+      
+   <Layout>
         <Router>
-          <Route path="/login" component={Login} />
-          <Route path="/form" component={Form} />
-          <Form></Form>
+            <Route exact path="/" component={Login} />
+            <Route exact path="/login" component={Login} />
+            <Route path="/register" component={Register} />    
+            <Route path="/forgotpassword" component={ForgotPassword} />
+            <Route path="/contact" component={Contact} /> 
         </Router>
-      </Layout> }
-      <Loader></Loader>
-      <Footer />
+      </Layout>
+      <Loader />
+     
+      
     </div>
   );
 }
