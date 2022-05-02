@@ -1,5 +1,5 @@
 import {LOGIN, LOGOUT} from "./actionTypes";
-import {getToken, setToken} from "../../helpers";
+import {getToken, setToken, removeToken} from "../../helpers";
 
 const initialState = {
     user: null,
@@ -30,7 +30,15 @@ const auth = (state = initialState, action) => {
                 token: null
             }
             break;
-
+        case LOGOUT:
+            removeToken();
+            state = {
+                ...state,
+                token: null,
+                user: null
+            }
+            window.location.reload();
+            break;
         default:
             state = {...state}
     }

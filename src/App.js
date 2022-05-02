@@ -1,6 +1,8 @@
 import './App.css';
-import Login from './Components/LoginPage/Form';
-import { BrowserRouter as Router, Route,  } from "react-router-dom";
+import {BrowserRouter as Router, Switch} from "react-router-dom";
+import {privateRoutes, publicRoutes} from "./routes";
+import AppRoute from "./routes/route";
+
 
 import Layout from "./Layout";
 
@@ -8,11 +10,26 @@ function App() {
     return (
         <div className='App'>
             <Layout>
-                    <Router>
-                        <Route path="/login" component={Login}/>
-
-                    </Router>
-
+                <Router>
+                    <Switch>
+                        {publicRoutes.map((route, idx) => (
+                            <AppRoute
+                                path={route.path}
+                                component={route.component}
+                                key={idx}
+                                isAuthProtected={false}
+                            />
+                        ))}
+                        {privateRoutes.map((route, idx) => (
+                            <AppRoute
+                                path={route.path}
+                                component={route.component}
+                                key={idx}
+                                isAuthProtected={true}
+                            />
+                        ))}
+                    </Switch>
+                </Router>
             </Layout>
         </div>
 
