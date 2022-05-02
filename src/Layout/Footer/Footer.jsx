@@ -5,7 +5,7 @@ function Footer(props) {
     <footer>
       <div className="container">
         <div className="footer-bar">
-          <a href="/home" className={props.active == "home" ? "active" : ""}>
+          <a href="/home" className={props.active === "home" ? "active" : ""}>
             <svg
               viewBox="0 1 511 511.999"
               width="20"

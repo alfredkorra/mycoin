@@ -9,8 +9,8 @@ import ForgotPassword from '../Components/ResetPage/ForgotPassword'
 import Contact from '../Components/ContactPage/Contact'
 
 /////   Private Routes
-import Home from "../Pages/Home";
-import Wallet from "../Pages/Wallet";
+import Home from "../pages/Home";
+import Wallet from "../pages/Wallet";
 
 const privateRoutes = [
     

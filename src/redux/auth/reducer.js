@@ -1,4 +1,4 @@
-import {LOGIN, LOGOUT} from "./actionTypes";
+import {LOGIN, LOGOUT, GET_CURRENT_USER} from "./actionTypes";
 import {getToken, setToken, removeToken} from "../../helpers";
 import {Route, Redirect} from "react-router-dom";
 
@@ -22,7 +22,7 @@ const auth = (state = initialState, action) => {
                 ...state,
                 loading: false,
                 token: action.payload.data
-                
+
             }
             break;
         case LOGIN.concat("_FAILURE") :
@@ -31,6 +31,13 @@ const auth = (state = initialState, action) => {
                 loading: false,
                 token: null
             }
+            break;
+        case GET_CURRENT_USER.concat("_SUCCESS"):
+            console.log('check payload',action.payload)
+            state = {
+                ...state
+            }
+
             break;
         case LOGOUT:
             removeToken();
