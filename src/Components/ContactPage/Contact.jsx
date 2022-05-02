@@ -15,7 +15,7 @@ function Contact() {
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     );
 
-  async function handleContact(e) {
+  async function handleContact(event) {
    
   }
 
@@ -92,7 +92,7 @@ function Contact() {
                     placeholder="Username"
                     type="text"
                     value={username}
-                    onChange={(e) => setUsername(e.target.value)}
+                    onChange={(event) => setUsername(event.target.value)}
                   />
                 </div>
                 <div className="form-group">
@@ -101,7 +101,7 @@ function Contact() {
                     placeholder="Email"
                     type="text"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(event) => setEmail(event.target.value)}
                   />
                 </div>
                 <div className="form-group">
@@ -110,7 +110,7 @@ function Contact() {
                     placeholder="Subject"
                     type="text"
                     value={subject}
-                    onChange={(e) => setSubject(e.target.value)}
+                    onChange={(event) => setSubject(event.target.value)}
                   />
                 </div>
                 <div className="form-group position-relative">
@@ -123,7 +123,7 @@ function Contact() {
                     rows="5"
                     placeholder="Message"
                     value={message}
-                    onChange={(e) => setMessage(e.target.value)}
+                    onChange={(event) => setMessage(event.target.value)}
                   ></textarea>
                 </div>
                 <div className="form-group">
