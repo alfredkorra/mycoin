@@ -10,6 +10,11 @@ function AuthHeader() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    // Animate loader off screen
+    jQuery("#loader-page").delay(100).fadeOut("slow");
+  }, []);
+
+  useEffect(() => {
     // async function getProfile() {
     //   try {
     //     const token = window.localStorage.getItem("sessionToken");
@@ -50,8 +55,10 @@ function AuthHeader() {
     jQuery(".bg-overlay").toggleClass("active");
   }
   if (isLoading) {
-    // return <Loader></Loader>;
-  }
+    // return <Loader></Loader>
+  };
+  
+
   return (
     <header className="header-main">
       <div className="container">

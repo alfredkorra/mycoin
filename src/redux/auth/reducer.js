@@ -1,5 +1,6 @@
 import {LOGIN, LOGOUT} from "./actionTypes";
 import {getToken, setToken, removeToken} from "../../helpers";
+import {Route, Redirect} from "react-router-dom";
 
 const initialState = {
     user: null,
@@ -16,11 +17,12 @@ const auth = (state = initialState, action) => {
             }
             break;
         case LOGIN.concat("_SUCCESS") :
-            setToken(action.payload.token);
+            setToken(action.payload.data);
             state = {
                 ...state,
                 loading: false,
-                token: action.payload.token
+                token: action.payload.data
+                
             }
             break;
         case LOGIN.concat("_FAILURE") :
