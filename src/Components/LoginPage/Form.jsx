@@ -1,5 +1,4 @@
 import React, {Component, createRef} from "react";
-import {FormValidation} from "./FormValidation";
 import {connect} from "react-redux";
 import {Container} from "react-bootstrap";
 import Logo from "../../Assets/logo.png";
@@ -8,6 +7,7 @@ import axios from 'axios';
 import {LOGIN} from "../../redux/auth/actionTypes";
 import "./Form.css";
 import ReCAPTCHA from "react-google-recaptcha";
+import {FormValidation} from './FormValidation';
 
 
 const recaptchaRef = createRef();
@@ -86,7 +86,7 @@ class Form extends Component {
         }
         axios({
             method: 'post',
-            url: 'http://185.209.230.64:8090/my-coin-api',
+            url: 'http://185.209.230.64:8090/my-coin-api/auth',
             data: data,
             headers: {
                 'X-Recaptcha-Token': token
@@ -190,7 +190,7 @@ class Form extends Component {
                 </Container>
                 <div>
                     <ReCAPTCHA
-                        sitekey="6LfRJ7kfAAAAAGznF-cQOAF_EeVjnzmxumaCa9jn"
+                        sitekey="6Lem5_cdAAAAAOGTlGUTApVlelyg9wi_XT3H92db"
                         ref={recaptchaRef}
                         onChange={() => this.onChange()}
                     />
