@@ -1,7 +1,7 @@
 import React from "react";
 import { toast } from "react-toastify";
 import { useState } from "react";
-import jQuery from "jquery";
+import axios from "axios";
 
 
 function Contact() {
@@ -15,8 +15,105 @@ function Contact() {
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     );
 
-  async function handleContact(event) {
-   
+  function handleContact(e) {
+    e.preventDefault();
+    if (!username) {
+      toast.warn('Please fill the username field!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          theme:"dark",
+          draggable: true,
+          progress: undefined,
+      });
+  }else if (!email) {
+      toast.warn("Please fill the email field!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        theme: "dark",
+        draggable: true,
+        progress: undefined,
+      });
+     } else if (!validEmail) {
+        toast.warn("Please enter a valid email!", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          theme: "dark",
+          draggable: true,
+          progress: undefined,
+        });
+    }else if(!subject){
+      toast.warn('Please fill the subject field!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          theme:"dark",
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+      });
+  }else if(!message){
+      toast.warn('Please fill the message!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          theme:"dark",
+          draggable: true,
+          progress: undefined,
+      });
+  } else {
+      const data = {
+        email,
+        username,
+        subject,
+        message,
+      };
+      axios({
+        method: "post",
+        url: "http://185.209.230.64:8090/my-coin-api/contact",
+        data: data,
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "*/*",
+        },
+      })
+        .then((res) => {
+          toast.success(res.data, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            theme: "dark",
+            draggable: true,
+            progress: undefined,
+          });
+        })
+        .catch((err) => {
+          toast.error("ERROR! " + err, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            theme: "dark",
+            draggable: true,
+            progress: undefined,
+          });
+          console.log("err", err);
+        });
+    }
   }
 
   return (

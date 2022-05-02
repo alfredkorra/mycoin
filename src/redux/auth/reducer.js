@@ -1,6 +1,6 @@
 import {LOGIN, LOGOUT, GET_CURRENT_USER} from "./actionTypes";
 import {getToken, setToken, removeToken} from "../../helpers";
-import {Route, Redirect} from "react-router-dom";
+
 
 const initialState = {
     user: null,

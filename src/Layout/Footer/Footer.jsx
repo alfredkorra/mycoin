@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Contact from "../../Components/ContactPage/Contact";
 
 function Footer(props) {
   return (
@@ -131,6 +132,9 @@ function Footer(props) {
             </svg>{" "}
             Contact
           </a>
+
+
+
         </div>
       </div>
     </footer>

@@ -1,7 +1,7 @@
 // import withAuth from "./withAuth";
 import Footer from "../Layout/Footer/Footer";
 import AuthHeader from "../Layout/Header/AuthHeader"
-// import SideBar from "../components/sidebar";
+import SideBar from "../Components/Sidebar";
 import React, { useEffect } from "react";
 import MyTricker from "../Components/TradingviewGraphic/MyTricker";
 import MyMiniChart from "../Components/TradingviewGraphic/WidgetMiniChart";
@@ -11,7 +11,7 @@ function Home() {
   return (
     <>
       <AuthHeader></AuthHeader>
-      {/* <SideBar></SideBar> */}
+       <SideBar></SideBar> 
       <main className="main-content">
         <div className="container">
           <div className="market-item py-4">

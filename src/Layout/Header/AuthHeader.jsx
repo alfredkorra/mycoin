@@ -2,61 +2,50 @@ import { Link } from "react-router-dom";
 import jQuery from "jquery";
 import { toast } from "react-toastify";
 import { useState } from "react";
-import Loader from "../../Components/Loader";
+import axios from "axios";
 import React, { useEffect } from "react";
+import {getToken} from "../../helpers"
 
 function AuthHeader() {
   const [profileData, setProfileData] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Animate loader off screen
-    jQuery("#loader-page").delay(100).fadeOut("slow");
+     getProfile();
   }, []);
 
-  useEffect(() => {
-    // async function getProfile() {
-    //   try {
-    //     const token = window.localStorage.getItem("sessionToken");
-    //     const request = new Request(baseApiUrl + "/profile", {
-    //       method: "GET",
-    //       headers: new Headers({
-    //         Authorization: "Bearer " + token,
-    //         "Content-Type": "application/json",
-    //         Accept: "*/*",
-    //       }),
-    //     });
-    //     const response = await fetch(request);
-    //     const data = await response.json();
-    //     if (response.status < 200 || response.status >= 300) {
-    //       throw new Error(profileData.message);
-    //     }
-    //     setProfileData(data);
-    //     setIsLoading(false);
-    //   } catch (error) {
-    //     setIsLoading(false);
-    //     toast.error(error + "!", {
-    //       position: "top-right",
-    //       autoClose: 5000,
-    //       hideProgressBar: false,
-    //       closeOnClick: true,
-    //       pauseOnHover: true,
-    //       theme: "dark",
-    //       draggable: true,
-    //       progress: undefined,
-    //     });
-    //   }
-    // }
-    // getProfile();
-  }, []);
   function showSideBar(e) {
     e.preventDefault();
     jQuery(".main-sidebar").toggleClass("active");
     jQuery(".bg-overlay").toggleClass("active");
   }
-  if (isLoading) {
-    // return <Loader></Loader>
-  };
+  
+  function getProfile(){
+    axios({
+      method: "get",
+      url: "http://185.209.230.64:8090/my-coin-api/profile",
+      headers: {
+               "Authorization": "Bearer "+getToken(),
+               "Content-Type": "application/json",
+               Accept: '*/*',
+      },
+    })
+      .then((res) => {
+        setProfileData(res.data)
+      })
+      .catch((err) => {
+        toast.error("ERROR! " + err, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          theme: "dark",
+          draggable: true,
+          progress: undefined,
+        });
+        console.log("err", err);
+      });
+    }
   
 
   return (
