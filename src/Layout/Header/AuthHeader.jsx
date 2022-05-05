@@ -22,7 +22,7 @@ function AuthHeader() {
   function getProfile() {
     axios({
       method: "get",
-      url: "http://185.209.230.64:8090/my-coin-api/profile",
+      url: "http://localhost:8090/my-coin-api/profile",
       headers: {
         Authorization: "Bearer " + getToken(),
         "Content-Type": "application/json",

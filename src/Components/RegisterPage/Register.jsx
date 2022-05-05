@@ -73,7 +73,7 @@ function Register() {
       };
       axios({
         method: "post",
-        url: "http://185.209.230.64:8090/my-coin-api/register",
+        url: "http://localhost:8090/my-coin-api/register",
         data: data,
         headers: {
           "X-Recaptcha-Token": recaptchaToken,

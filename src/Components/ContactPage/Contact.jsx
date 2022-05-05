@@ -80,7 +80,7 @@ function Contact() {
       };
       axios({
         method: "post",
-        url: "http://185.209.230.64:8090/my-coin-api/contact",
+        url: "http://localhost:8090/my-coin-api/contact",
         data: data,
         headers: {
           "Content-Type": "application/json",

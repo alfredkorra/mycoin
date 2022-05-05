@@ -3,7 +3,7 @@ import {getToken} from "./helpers";
 
 
 export default axios.create({
-    baseURL: 'http://185.209.230.64:8090/my-coin-api',
+    baseURL: 'http://localhost:8090/my-coin-api',
     headers: {
         'Content-Type': 'application/json',
         'Authorization': getToken() ? `Bearer ${getToken()}` : {},

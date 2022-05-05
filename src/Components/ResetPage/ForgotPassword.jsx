@@ -39,7 +39,7 @@ function ForgotPassword() {
     } else {
       axios({
         method: "POST",
-        url: "http://185.209.230.64:8090/my-coin-api/register/resetPassword",
+        url: "http://localhost:8090/my-coin-api/register/resetPassword",
         headers: {
           Email: email,
           "Content-Type": "application/json",

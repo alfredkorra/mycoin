@@ -70,7 +70,7 @@ function Login({ history }) {
       };
       axios({
         method: "post",
-        url: "http://185.209.230.64:8090/my-coin-api/auth",
+        url: "http://localhost:8090/my-coin-api/auth",
         data: data,
         headers: {
           "X-Recaptcha-Token": recaptchaToken,
