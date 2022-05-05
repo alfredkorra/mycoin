@@ -1,10 +1,9 @@
 import React, { useState, useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { toast } from "react-toastify";
-import { Link } from "react-router-dom";
-import { GET_CURRENT_USER, LOGIN } from "../../redux/auth/actionTypes";
 import axios from "axios";
 import { useDispatch } from "react-redux";
+import { LOGIN } from "../../redux/auth/actionTypes";
 
 function Login({ history }) {
   const [email, setEmail] = useState("");

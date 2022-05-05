@@ -3,7 +3,6 @@ import { toast } from "react-toastify";
 import { useState } from "react";
 import axios from "axios";
 
-
 function Contact() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -18,17 +17,17 @@ function Contact() {
   function handleContact(e) {
     e.preventDefault();
     if (!username) {
-      toast.warn('Please fill the username field!', {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          theme:"dark",
-          draggable: true,
-          progress: undefined,
+      toast.warn("Please fill the username field!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        theme: "dark",
+        draggable: true,
+        progress: undefined,
       });
-  }else if (!email) {
+    } else if (!email) {
       toast.warn("Please fill the email field!", {
         position: "top-right",
         autoClose: 5000,
@@ -39,40 +38,40 @@ function Contact() {
         draggable: true,
         progress: undefined,
       });
-     } else if (!validEmail) {
-        toast.warn("Please enter a valid email!", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          theme: "dark",
-          draggable: true,
-          progress: undefined,
-        });
-    }else if(!subject){
-      toast.warn('Please fill the subject field!', {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          theme:"dark",
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
+    } else if (!validEmail) {
+      toast.warn("Please enter a valid email!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        theme: "dark",
+        draggable: true,
+        progress: undefined,
       });
-  }else if(!message){
-      toast.warn('Please fill the message!', {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          theme:"dark",
-          draggable: true,
-          progress: undefined,
+    } else if (!subject) {
+      toast.warn("Please fill the subject field!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        theme: "dark",
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
       });
-  } else {
+    } else if (!message) {
+      toast.warn("Please fill the message!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        theme: "dark",
+        draggable: true,
+        progress: undefined,
+      });
+    } else {
       const data = {
         email,
         username,
@@ -118,7 +117,6 @@ function Contact() {
 
   return (
     <>
-      
       <main className="main-content">
         <div className="container">
           <div className="contact-item">
@@ -246,7 +244,6 @@ function Contact() {
           </div>
         </div>
       </main>
-      
     </>
   );
 }

@@ -1,7 +1,6 @@
 
-
 :root {
-  --color1: #17161b;
+   --color1: #17161b; 
   --color2: #F0B90A;
   --color3: #2a2d3c;
   --color4: #edf1f9;
@@ -19,7 +18,7 @@
   padding: 0; }
   body,
   html {
-    background-color: var(--color1);
+     background-color: var(--color1); 
     margin: 0;
     padding: 0;
     font-family: Nunito;

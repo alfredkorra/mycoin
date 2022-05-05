@@ -4,13 +4,13 @@ import { toast } from "react-toastify";
 import { useState } from "react";
 import axios from "axios";
 import React, { useEffect } from "react";
-import {getToken} from "../../helpers"
+import { getToken } from "../../helpers";
 
 function AuthHeader() {
   const [profileData, setProfileData] = useState(null);
 
   useEffect(() => {
-     getProfile();
+    getProfile();
   }, []);
 
   function showSideBar(e) {
@@ -18,19 +18,19 @@ function AuthHeader() {
     jQuery(".main-sidebar").toggleClass("active");
     jQuery(".bg-overlay").toggleClass("active");
   }
-  
-  function getProfile(){
+
+  function getProfile() {
     axios({
       method: "get",
       url: "http://185.209.230.64:8090/my-coin-api/profile",
       headers: {
-               "Authorization": "Bearer "+getToken(),
-               "Content-Type": "application/json",
-               Accept: '*/*',
+        Authorization: "Bearer " + getToken(),
+        "Content-Type": "application/json",
+        Accept: "*/*",
       },
     })
       .then((res) => {
-        setProfileData(res.data)
+        setProfileData(res.data);
       })
       .catch((err) => {
         toast.error("ERROR! " + err, {
@@ -45,8 +45,7 @@ function AuthHeader() {
         });
         console.log("err", err);
       });
-    }
-  
+  }
 
   return (
     <header className="header-main">

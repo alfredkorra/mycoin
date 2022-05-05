@@ -1,13 +1,15 @@
-import React from 'react';
+import React from "react";
 
-function Loader(){
-    return <div id="loader-page">
-    <div className="loader" id="line">
+function Loader() {
+  return (
+    <div id="loader-page">
+      <div className="loader" id="line">
         <span></span>
         <span></span>
         <span></span>
         <span></span>
+      </div>
     </div>
-</div>
+  );
 }
 export default Loader;
