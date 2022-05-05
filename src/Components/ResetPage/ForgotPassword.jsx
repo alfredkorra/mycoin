@@ -1,3 +1,4 @@
+import LOGO from '../../Assets/logo.png'
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { useHistory } from "react-router-dom";
@@ -86,7 +87,7 @@ function ForgotPassword() {
         <div className="login-item">
           <div className="logo-item py-4">
             <div className="d-flex justify-content-center text-center">
-              <img src="/logo.png" alt="logo" className="logo-main" />
+              <img src={LOGO} alt="logo" className="logo-main" />
             </div>
           </div>
           <div className="login-card-form">

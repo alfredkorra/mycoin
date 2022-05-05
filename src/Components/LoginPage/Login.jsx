@@ -1,3 +1,4 @@
+import LOGO from '../../Assets/logo.png'
 import React, { useState, useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { toast } from "react-toastify";
@@ -111,7 +112,7 @@ function Login({ history }) {
           <div className="login-item">
             <div className="logo-item py-4">
               <div className="d-flex justify-content-center text-center">
-                <img src="/logo.png" alt="logo" className="logo-main" />
+                <img src={LOGO} alt={"logo"} className="logo-main" />
               </div>
             </div>
             <div className="login-card-form">
